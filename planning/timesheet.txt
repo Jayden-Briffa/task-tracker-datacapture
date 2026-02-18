@@ -1,3 +1,13 @@
 17/02/2026
 16:00 - 17:00
     Planned interactions between priority queue and saved state
+        Realised a potential limitation: Skipping every completed task instead of just not including them in the priority queue could be an issue at larger scales
+
+18/02/2026
+16:30 - 17:00
+    Started developing with a top-down approach to support planning
+
+
+Potential improvements:
+    Use an index of incomplete tasks for priority queue to reduce reset times
+    Provide a key to contextualise different priorities
