@@ -12,6 +12,10 @@
 19:00 - 21:00 OFF
     Started the programming stage. I used the test plan as a guide to remember everything I wanted to do
 
+20/02/2026
+07:00 - 8:30 OFF, 8:30 - 14:00
+    Completed coding
+
 Potential improvements:
     Use an index of incomplete tasks for priority queue to reduce reset times
     Provide a key to contextualise different priorities
