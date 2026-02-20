@@ -58,15 +58,11 @@ def load_tasks():
         tasksJSON = json.load(f)
         current_tasks, number_retrieved = tasksJSON["tasks", "number_retrieved"]    # POINT: Storing number_retrieved simplifies logic and reduces stored data
 
-        for id, task in current_tasks.items():
-            if id > len(current_tasks) - number_retrieved:  # POINT: Fragile- works only if no tasks can be deleted
-                break
-
-            priority_idx.put_nowait((task["priority"], task["id"]))
+        reset_task_queue(number_retrieved)
 
 
 def save_tasks():
-    print("Saving. Do not close the program...")
+    print("Saving. Do not close the program...") # Print inside save_tasks() to ensure that the user always knows when the program last saved
     with open("tasks.json") as f:
         json.dump({
             "current_tasks": current_tasks,
@@ -94,6 +90,7 @@ def get_task_by_priority():
             return {}
 
     priority_task = priority_idx.get_nowait()
+    number_retrieved += 1
     next_task = current_tasks[priority_task[1]]
 
     save_tasks()    # POINT: Autosave trades performance for ensuring that tasks are always safe 
@@ -110,6 +107,13 @@ def complete_task(id):
 
     return current_tasks[id]
 
+def reset_task_queue(number_retrieved=0):
+    for id, task in current_tasks.items():
+        if id > len(current_tasks) - number_retrieved:  # POINT: Fragile- works only if no tasks can be deleted
+            break
+
+        priority_idx.put_nowait((task["priority"], task["id"]))
+
 user_choice = None
 while True:
 
@@ -118,6 +122,7 @@ while True:
     print("2: Retrieve next task")
     print("3: Retrieve task by ID")
     print("4: Mark a task as complete")
+    print("5: Reset task queue")
     print("quit: Exit program")
     user_choice = input("\nchoice: ")
     
@@ -167,14 +172,19 @@ while True:
             task = complete_task(int(id))
             print(task)
 
+        # Reset the task queue to be as if nothing was retrieved
+        case "5":
+            print("Resetting task queue...")
+            reset_task_queue()
+            print("Resetting complete")
+
         # Exit program
         case "quit":
             print("Shutting down...")
             break
 
-        # Basic feedback to reduce ambiguity for POC tester
         case _:
-            print("You must choose 1, 2, 3, or 4")
+            print("You must choose 1, 2, 3, 4, or 5")
 
 
 quit()
