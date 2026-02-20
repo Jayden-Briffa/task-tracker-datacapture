@@ -13,11 +13,11 @@ A task id will be automatically generated and the new task will be passed into m
 
 **Example output**
 ```
-Task successfully created!
---id: 5
---description: Review ticket #1234
---priority: 1
---status: "Incomplete"
+---- Task successfully created! ----
+-- id: 5
+-- description: Review ticket #1234
+-- priority: 1
+-- status: "Incomplete"
 ```
 
 # 2. Retrieve the next task based on priority
