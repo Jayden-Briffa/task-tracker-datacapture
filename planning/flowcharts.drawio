@@ -1,41 +1,19 @@
 <mxfile host="65bd71144e">
     <diagram name="State persistence" id="XDwETH_GOF7yHH1Y6HaY">
-        <mxGraphModel dx="1462" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1723" dy="570" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
                 <mxCell id="psRNs8YXsDwZLrQxuP8q-1" value="Start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="-710" y="110" width="100" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="psRNs8YXsDwZLrQxuP8q-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="psRNs8YXsDwZLrQxuP8q-3" target="psRNs8YXsDwZLrQxuP8q-7" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
+                <mxCell id="psRNs8YXsDwZLrQxuP8q-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.546;entryY=0.04;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="psRNs8YXsDwZLrQxuP8q-1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="-660.8" y="202.39999999999998" as="targetPoint"/>
+                    </mxGeometry>
                 </mxCell>
-                <mxCell id="psRNs8YXsDwZLrQxuP8q-3" value="Store new task in local storage" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
-                    <mxGeometry x="-735" y="300" width="130" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="psRNs8YXsDwZLrQxuP8q-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="psRNs8YXsDwZLrQxuP8q-4" target="psRNs8YXsDwZLrQxuP8q-3" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="psRNs8YXsDwZLrQxuP8q-4" value="INPUT description, priority" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" parent="1" vertex="1">
-                    <mxGeometry x="-770" y="200" width="200" height="60" as="geometry"/>
-                </mxCell>
-                <mxCell id="psRNs8YXsDwZLrQxuP8q-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.546;entryY=0.04;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="psRNs8YXsDwZLrQxuP8q-1" target="psRNs8YXsDwZLrQxuP8q-4" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="ooODpUgCnF1tKed7dLDY-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="psRNs8YXsDwZLrQxuP8q-7" target="psRNs8YXsDwZLrQxuP8q-11" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="psRNs8YXsDwZLrQxuP8q-7" value="Turn tasks dictionary into JSON" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
-                    <mxGeometry x="-735" y="380" width="130" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="psRNs8YXsDwZLrQxuP8q-9" value="Store JSON in tasks.json" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
-                    <mxGeometry x="-735" y="520" width="130" height="40" as="geometry"/>
-                </mxCell>
-                <mxCell id="ooODpUgCnF1tKed7dLDY-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="psRNs8YXsDwZLrQxuP8q-11" target="psRNs8YXsDwZLrQxuP8q-9" edge="1">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="psRNs8YXsDwZLrQxuP8q-11" value="Add task to queue" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
-                    <mxGeometry x="-735" y="450" width="130" height="40" as="geometry"/>
+                <mxCell id="psRNs8YXsDwZLrQxuP8q-9" value="Store current_tasks and priority_idx in tasks.json" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" parent="1" vertex="1">
+                    <mxGeometry x="-725" y="510" width="130" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="ooODpUgCnF1tKed7dLDY-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="ooODpUgCnF1tKed7dLDY-8" target="ooODpUgCnF1tKed7dLDY-10" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
@@ -90,7 +68,7 @@
                 <mxCell id="ooODpUgCnF1tKed7dLDY-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="ooODpUgCnF1tKed7dLDY-15" target="ooODpUgCnF1tKed7dLDY-25" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="ooODpUgCnF1tKed7dLDY-29" value="Start" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                <mxCell id="ooODpUgCnF1tKed7dLDY-29" value="End" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
                     <mxGeometry x="-400" y="910" width="100" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="ooODpUgCnF1tKed7dLDY-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="ooODpUgCnF1tKed7dLDY-30" target="ooODpUgCnF1tKed7dLDY-31" edge="1">
@@ -125,6 +103,58 @@
                 </mxCell>
                 <mxCell id="12" value="No" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=0" parent="1" vertex="1">
                     <mxGeometry x="-306" y="350" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="14" target="15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Load from tasks.json" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+                    <mxGeometry x="-725" y="200" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="15" target="16">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="Choose menu option" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+                    <mxGeometry x="-725" y="280" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="16" target="18">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Perform menu process" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+                    <mxGeometry x="-725" y="360" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="18" target="psRNs8YXsDwZLrQxuP8q-9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Update local state" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" vertex="1" parent="1">
+                    <mxGeometry x="-725" y="437" width="130" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitPerimeter=0;" edge="1" parent="1" source="24" target="15">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="-550" y="640"/>
+                            <mxPoint x="-550" y="300"/>
+                        </Array>
+                        <mxPoint x="-590" y="610" as="sourcePoint"/>
+                        <mxPoint x="-590" y="380" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="Quit?" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.decision;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="-715" y="585" width="110" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="25" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="psRNs8YXsDwZLrQxuP8q-9" target="24">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="End" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="-710" y="720" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="24" target="27">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="Yes" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#d5e8d4;strokeColor=#82b366;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="-645" y="688" width="50" height="20" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="No" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;fontStyle=0" vertex="1" parent="1">
+                    <mxGeometry x="-605" y="610" width="50" height="20" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

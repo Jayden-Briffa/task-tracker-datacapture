@@ -4,9 +4,13 @@
         Realised a potential limitation: Skipping every completed task instead of just not including them in the priority queue could be an issue at larger scales
 
 18/02/2026
-16:30 - 17:00
+16:30 - 17:00, 17:00 - 19:00 OFF
     Started developing with a top-down approach to support planning
+    Created test plan to drive development. Since performance was a key part of the client requirements, performance tests were included 
 
+19/02/2026
+19:00 - 21:00 OFF
+    Started the programming stage. I used the test plan as a guide to remember everything I wanted to do
 
 Potential improvements:
     Use an index of incomplete tasks for priority queue to reduce reset times

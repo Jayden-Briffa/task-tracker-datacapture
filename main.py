@@ -1,10 +1,33 @@
 from queue import PriorityQueue as Priority_Queue
+import json
 
 current_tasks = dict()
 priority_idx = Priority_Queue()
+number_retrieved = 0
 
 # Id to be given to the nexdt task
-newest_id = 0
+newest_id = 1
+
+def load_tasks():
+    # TODO: Change state management to class to improve readability
+    global current_tasks, number_retrieved  # POINT: Bad practice- difficult to read.
+    with open("tasks.json") as f: # POINT: Used with statement to prevent leaks
+        tasksJSON = json.load(f)
+        current_tasks, number_retrieved = tasksJSON["tasks", "number_retrieved"]    # POINT: Storing number_retrieved simplifies logic and reduces stored data
+
+        for id, task in current_tasks.items():
+            if id > len(current_tasks) - number_retrieved:  # POINT: Fragile- works only if no tasks can be deleted
+                break
+
+            priority_idx.put_nowait((task["priority"], task["id"]))
+
+
+def save_tasks():
+    with open("tasks.json") as f:
+        json.dump({
+            "current_tasks": current_tasks,
+            "number_retrieved": number_retrieved
+        }, f)
 
 def add_task(description, priority):
     new_task = {
@@ -17,14 +40,19 @@ def add_task(description, priority):
     current_tasks[new_task["id"]] = new_task
     priority_idx.put_nowait((new_task["priority"], new_task["id"]))
 
+    save_tasks()
+
     return current_tasks[new_task["id"]]
 
+# TODO: Skip completed tasks
 def get_task_by_priority():
     if priority_idx.empty():
             return {}
 
     priority_task = priority_idx.get_nowait()
     next_task = current_tasks[priority_task[1]]
+
+    save_tasks()    # POINT: Autosave trades performance for ensuring that tasks are always safe 
 
     return next_task
 
@@ -34,6 +62,8 @@ def get_task_by_id(id):
 
 def complete_task(id):
     current_tasks[id]["status"] = "Complete"
+    save_tasks()
+
     return current_tasks[id]
 
 user_choice = None
@@ -91,3 +121,6 @@ while True:
 
 
 quit()
+
+# POINT: Optimise by deleting tasks of a certain age
+# POINT: Optimise by making autosave optional
