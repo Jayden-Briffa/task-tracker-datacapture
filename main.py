@@ -5,8 +5,10 @@ current_tasks = dict()
 priority_idx = Priority_Queue()
 number_retrieved = 0
 
+FIRST_ID = 1
+
 # Id to be given to the next task
-newest_id = 1
+newest_id = FIRST_ID
 
 def validate_task(description, priority):
     messages = []
@@ -33,6 +35,10 @@ def validate_id(id):
 
     try:
         id = int(id)
+        
+        if id < FIRST_ID:
+            messages.append(f"Field 'id' must be greater than or equal to ${FIRST_ID}")
+
         found_task = get_task_by_id()
         if not found_task:
             messages.append(f"There is no task with the id '${id}'")
@@ -174,6 +180,10 @@ while True:
 
         # Reset the task queue to be as if nothing was retrieved
         case "5":
+
+            if number_retrieved == 0:
+                print("No tasks have been retrieved from the queue- no change")
+
             print("Resetting task queue...")
             reset_task_queue()
             print("Resetting complete")
@@ -184,7 +194,7 @@ while True:
             break
 
         case _:
-            print("You must choose 1, 2, 3, 4, or 5")
+            print_error_messages(["You must choose 1, 2, 3, 4, or 5"])
 
 
 quit()
