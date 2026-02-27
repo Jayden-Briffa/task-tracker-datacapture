@@ -4,6 +4,7 @@ import time
 
 model = Tasks_Model(True)
 
+# POINT: Simple test system for manual performance tests. This reduces unnecessary tests and saves time writing tests that may only be used once or twice
 num_tasks = 100000
 for i in range(num_tasks-1):
     is_complete = i != int(num_tasks/2)

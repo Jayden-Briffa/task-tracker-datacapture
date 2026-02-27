@@ -31,7 +31,7 @@ class Tasks_Model:
                 "current_tasks": self.current_tasks,
                 "number_retrieved": self.number_retrieved,
                 "newest_id": self.newest_id
-            }, f)
+            }, f, indent=4)
 
     def load_tasks(self):
         try:
@@ -67,10 +67,10 @@ class Tasks_Model:
         return self.current_tasks[new_task["id"]]
     
     def get_task_by_priority(self, no_save=False):
-        if self.priority_idx.empty():
-                return {}
-
         while True:
+            if self.priority_idx.empty():
+                return {}
+            
             priority_task = self.priority_idx.get_nowait()
             next_task = self.current_tasks[priority_task[1]]
             
@@ -94,12 +94,13 @@ class Tasks_Model:
 
     def reset_task_queue(self, number_retrieved=0, no_save=False):
         self.priority_idx = Priority_Queue()
-
+        
         for task in self.current_tasks.values():
             self.priority_idx.put_nowait((task["priority"], task["id"]))
-
-        for _ in range(number_retrieved):
+            
+        for i in range(number_retrieved):
             self.priority_idx.get_nowait()
 
-        if number_retrieved == 0 and not no_save:
+        if not no_save:
+            self.number_retrieved = number_retrieved
             self.save_tasks(no_print=True)
