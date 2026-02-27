@@ -17,7 +17,7 @@
     Completed coding
 
 27/02/2026
-10:00 -
+10:00 - 11:30, 13:00 - 17:00
     Refactored code to reduce coupling between main.py and Tasks_Model.py
 
 Potential improvements:

@@ -76,7 +76,6 @@ class Tasks_Model:
             
             if next_task["status"] == "Incomplete":
                 self.number_retrieved += 1
-                
                 if not no_save:
                     self.save_tasks()    # POINT: Autosave trades performance for ensuring that tasks are always safe 
 
@@ -93,14 +92,14 @@ class Tasks_Model:
         return self.current_tasks[id]
 
     def reset_task_queue(self, number_retrieved=0, no_save=False):
+        self.number_retrieved = number_retrieved
         self.priority_idx = Priority_Queue()
         
         for task in self.current_tasks.values():
             self.priority_idx.put_nowait((task["priority"], task["id"]))
             
-        for i in range(number_retrieved):
-            self.priority_idx.get_nowait()
+        for i in range(self.number_retrieved):
+            self.get_task_by_priority(no_save=True) # POINT: Saves time from unnecessary saving
 
         if not no_save:
-            self.number_retrieved = number_retrieved
             self.save_tasks(no_print=True)
