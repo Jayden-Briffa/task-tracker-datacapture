@@ -1,13 +1,15 @@
 from Tasks_Model import Tasks_Model
 from validation import validate_queue_returned_next_task, validate_some_retrieved, validate_task, validate_id, validate_task_not_complete
-# TODO: Add comments
-def output_task(task):
+
+# Output functions to apply consistent formatting and colour to key outputs
+# Prints in yellow
+def output_task(task): 
     print_task_color = lambda text: print(f"\033[93m {text}\033[00m")
     print_task_color(f"---- Task #{task['id']} ({task['status']}) ----")
     print_task_color(f"-- Description: {task['description']}")
     print_task_color(f"-- Priority: {task['priority']}")
 
-# POINT: Emphasises error messages with trailing blank line and trailing ***
+# Prints in red
 def output_error_messages(messages):
     print()
 
@@ -16,10 +18,11 @@ def output_error_messages(messages):
     
     print()
 
+# Prints in green
 def output_success(msg):
     print(f"--- \033[92m{msg}\033[00m ---")
 
-# POINT: Dynamic model allows for easier testing and scalability
+# Passing model allows you to pre-populate with test data
 def main(model: Tasks_Model = None):
     if model == None:
         model = Tasks_Model()
@@ -116,11 +119,3 @@ def main(model: Tasks_Model = None):
 
 if __name__ == "__main__":
     main()
-
-# POINT: Optimise by deleting tasks of a certain age
-# POINT: Optimise by making autosave optional
-# POINT: Optimise by only saving on program close
-# POINT: Optimise by implementing more robust error checks after each key action
-# POINT: Optimise by allowing color optionality for better accessibility
-# POINT: Get-by-priority was the biggest challenge because it required careful state management and would cause a catastrphic error if anything went wrong.
-# POINT: Optimise by reducing coupling between output and task object by creating a task object with its own output method
