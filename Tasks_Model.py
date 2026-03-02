@@ -98,7 +98,7 @@ class Tasks_Model:
         for task in self.current_tasks.values():
             self.priority_idx.put_nowait((task["priority"], task["id"]))
             
-        for i in range(self.number_retrieved):
+        for _ in range(self.number_retrieved):
             self.get_task_by_priority(no_save=True) # POINT: Saves time from unnecessary saving
 
         if not no_save:

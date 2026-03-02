@@ -1,8 +1,6 @@
 from Tasks_Model import Tasks_Model
-from validation import validate_task, validate_id
-
-# POINT: Optimise by reducing coupling between output and task object by creating a task
-# class with its own output method
+from validation import validate_queue_returned_next_task, validate_some_retrieved, validate_task, validate_id, validate_task_not_complete
+# TODO: Add comments
 def output_task(task):
     print_task_color = lambda text: print(f"\033[93m {text}\033[00m")
     print_task_color(f"---- Task #{task['id']} ({task['status']}) ----")
@@ -57,8 +55,9 @@ def main(model: Tasks_Model = None):
             # Get task by priority
             case "2":
                 next_task = model.get_task_by_priority()
-                if not next_task:
-                    output_error_messages(["There are no tasks in the queue. Try resetting the task queue, or adding a new task."])
+                messages = validate_queue_returned_next_task(next_task)
+                if messages:
+                    output_error_messages(messages)
                     continue
 
                 output_success("Next task retrieved successfully:")
@@ -85,9 +84,9 @@ def main(model: Tasks_Model = None):
                     output_error_messages(messages)
                     continue
 
-                # POINT: Simple, one-time-use validation check doesn't need to be a seperate function- keeps code concise and clear
-                if found_task["status"] == "Complete":
-                    output_error_messages([f"Task with id '{id}' is already complete"])
+                messages = validate_task_not_complete(found_task)
+                if messages:
+                    output_error_messages(messages)
                     continue
 
                 task = model.complete_task(id)
@@ -96,8 +95,9 @@ def main(model: Tasks_Model = None):
 
             # Reset the task queue to be as if nothing was retrieved
             case "5":
-                if model.number_retrieved == 0:
-                    output_error_messages(["No tasks have been retrieved from the queue- no change"])
+                messages = validate_some_retrieved(model.number_retrieved)
+                if messages:    
+                    output_error_messages(messages)
                     continue
 
                 print("Resetting task queue...")
@@ -123,3 +123,4 @@ if __name__ == "__main__":
 # POINT: Optimise by implementing more robust error checks after each key action
 # POINT: Optimise by allowing color optionality for better accessibility
 # POINT: Get-by-priority was the biggest challenge because it required careful state management and would cause a catastrphic error if anything went wrong.
+# POINT: Optimise by reducing coupling between output and task object by creating a task object with its own output method
